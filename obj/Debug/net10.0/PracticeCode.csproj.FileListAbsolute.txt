@@ -1,0 +1,14 @@
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\bin\Debug\net10.0\PracticeCode.exe
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\bin\Debug\net10.0\PracticeCode.deps.json
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\bin\Debug\net10.0\PracticeCode.runtimeconfig.json
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\bin\Debug\net10.0\PracticeCode.dll
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\bin\Debug\net10.0\PracticeCode.pdb
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.AssemblyInfoInputs.cache
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.AssemblyInfo.cs
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.csproj.CoreCompileInputs.cache
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.dll
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\refint\PracticeCode.dll
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.pdb
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\PracticeCode.genruntimeconfig.cache
+C:\Users\Tyler\Documents\College Resources\Job Files\Job Interview Practice\C#\PracticeCode\obj\Debug\net10.0\ref\PracticeCode.dll
