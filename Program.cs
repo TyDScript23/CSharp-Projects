@@ -7,6 +7,9 @@ namespace HelloWorld
   {
     static void Main()
     {
+      //#############################################################################
+      //PRINTING TO CONSOLE
+      //#############################################################################
       Console.WriteLine("Tyler Davis");
 
       // Ask user for fave number
@@ -19,6 +22,10 @@ namespace HelloWorld
       int newInt = Convert.ToInt32(faveNumber);
 
       Console.Write("The number that you wrote was " + newInt + "\n");
+
+      //#############################################################################
+      //DATA TYPES
+      //#############################################################################
 
       //Now let's understand the difference between a double and a decimal
 
@@ -41,6 +48,10 @@ namespace HelloWorld
       int numberOne = 12932;
       int numberTwo = -2828472;
 
+      //#############################################################################
+      //BUILT IN FUNCTIONS
+      //############################################################################# 
+
       // Use built-in methods and save to variable 
       double numberOneSqrt = Math.Floor(Math.Sqrt(numberOne));
 
@@ -51,6 +62,11 @@ namespace HelloWorld
 
       Console.WriteLine(Math.Min(numberOneSqrt, numberTwoSqrt));
 
+
+
+      //#############################################################################
+      //WORKING WITH STRINGS
+      //#############################################################################
 
       //Now let's mess around with some strings
 
@@ -140,6 +156,10 @@ namespace HelloWorld
       Console.WriteLine(sceneDescription);
 
 
+      //#############################################################################
+      //BOOLEANS
+      //#############################################################################
+
       //Let's try some boolean values
       int cookiesSoldGuess = 250;
       int storeOneCookies = 110;
@@ -151,92 +171,209 @@ namespace HelloWorld
 
       Console.WriteLine(guessedCorrect);
 
-      //let's do another boolean operator
-        double timeToDinner = 4;
-        double distance = 95;
-        double rate = 30;
+    //let's do another boolean operator
+      double timeToDinner = 4;
+      double distance = 95;
+      double rate = 30;
 
-        double tripDuration = distance/rate;
+      double tripDuration = distance/rate;
 
-        bool answer = tripDuration <= timeToDinner;
+      bool answer = tripDuration <= timeToDinner;
 
-        Console.WriteLine(answer);
+      Console.WriteLine(answer);
 
-        //now some logical operators
-        bool beach = true;
-        bool hiking = false;
-        bool city = true;
+      //now some logical operators
+      bool beach = true;
+      bool hiking = false;
+      bool city = true;
 
-        bool yourNeeds = beach && city;
-        bool friendNeeds = beach || hiking;
+      bool yourNeeds = beach && city;
+      bool friendNeeds = beach || hiking;
 
-        bool tripDecision = yourNeeds && friendNeeds;
-        Console.WriteLine(tripDecision);
+      bool tripDecision = yourNeeds && friendNeeds;
+      Console.WriteLine(tripDecision);
 
 
-        //Now let's try some if-else statements
-        int people = 11;
-        string weather = "nice";
+    //#############################################################################
+    //IF AND ELSE STATEMENTS
+    //#############################################################################
+      //Now let's try some if-else statements
+      int people = 11;
+      string weather = "nice";
 
-        if(people <= 10 && weather == "nice"){
-          Console.WriteLine("SaladMart");
-        } 
-        else {
-        Console.WriteLine("Soup N Sandwich");
-        }
+      if(people <= 10 && weather == "nice"){
+        Console.WriteLine("SaladMart");
+      } 
+      else {
+      Console.WriteLine("Soup N Sandwich");
+      }
 
-        double ph = 7.0;
-        
-        if(ph < 7.0) {
+      double ph = 7.0;
+      
+      if(ph < 7.0) {
+        Console.WriteLine("Acidic");
+      }
+      else if(ph > 7.0) {
+        Console.WriteLine("Basic");
+      }
+      else {
+        Console.WriteLine("Neutral");
+      }
+
+      //let's do a similar thing but with a switch statement
+
+      double ph2 = 14;
+
+      switch(ph2) 
+      {
+        case <= 3: 
+          Console.WriteLine("Very Acidic");
+          break;
+        case >= 11:
+          Console.WriteLine("Very Basic");
+          break;
+        case < 7:
           Console.WriteLine("Acidic");
-        }
-        else if(ph > 7.0) {
+          break;
+        case > 7:
           Console.WriteLine("Basic");
-        }
-        else {
+          break;
+        default: 
           Console.WriteLine("Neutral");
-        }
+          break;
+      }
 
-        //let's do a similar thing but with a switch statement
+      //let's practice with ternary statements
+      int pepperLength = 4;
 
-        double ph2 = 14;
+      string message = (pepperLength >= 3.5) ? "ready!" : "wait a little longer";
 
-        switch(ph2) 
+      Console.WriteLine(message);
+
+
+    //#############################################################################
+    //OUT PARAMETERS
+    //#############################################################################
+
+      //Here is an example of an out paramter
+      string scoreAsString = "85.6";
+      string statement = "Hello World";
+      
+      double scoreAsDouble;
+      bool outcome = Double.TryParse(scoreAsString, out scoreAsDouble);
+
+      Console.WriteLine(outcome);
+      Console.WriteLine(scoreAsDouble);
+
+    //#############################################################################
+    //ARRAYS
+    //#############################################################################
+
+      //let us try some array declarations
+
+      string[] summerStrut; 
+      summerStrut = new string[] {"Song 1", "Song 2", "Song 3", "Song 4", "Song 5", "Song 6", "Song 7", "Song 8"};
+
+      int[] ratings = new int[] {1,1,2,3,4,5,5,5};
+
+      //arrays can also be implicitly typed
+
+      var summerStrut2 = new[] { "Juice", "Missing U", "Raspberry Beret", "New York Groove", "Make Me Feel", "Rebel Rebel", "Despacito", "Los Angeles" };
+    
+      var ratings2 = new[] { 5, 4, 4, 3, 3, 5, 5, 4 };
+
+      if(summerStrut.Length == 8)
+      {
+        Console.WriteLine("summerStrut Playlist is ready to go!");
+      }
+      else if (summerStrut.Length > 8) {
+          Console.WriteLine("Too many songs!");
+      }
+      else {
+        Console.WriteLine("Add some songs!");
+      }
+
+      //here are some ways to access an array
+
+      Console.WriteLine($"You rated the song {summerStrut[1]} {ratings[1]} stars.");
+
+      //and we can also update arrays
+      summerStrut[7] = "Another song of my choosing";
+
+      ratings[7] = 5;
+
+      //and we can also use some built in functions
+      Console.WriteLine($"Song number {Array.IndexOf(ratings, 3) + 1} is rated three stars.");
+
+      Array.Reverse(summerStrut); 
+
+      Console.WriteLine(summerStrut[0]); 
+      Console.WriteLine(summerStrut[7]); 
+
+      Array.Reverse(summerStrut); 
+
+      Console.WriteLine(summerStrut[0]); 
+      Console.WriteLine(summerStrut[7]); 
+
+      Array.Sort(summerStrut); 
+
+      Console.WriteLine(summerStrut[0]); 
+      Console.WriteLine(summerStrut[7]);
+
+      //#############################################################################
+      //LOOPS
+      //#############################################################################
+
+      //here is an example of a while loop
+      int emails = 20;  
+      
+      while (emails > 0){
+        emails--;
+        Console.WriteLine(emails + " emails left...");
+      }
+
+      Console.WriteLine("INBOX ZERO ACHIEVED!");
+
+      //here is an example of a do-while loop
+      bool buttonClick = true;
+      
+      do {
+        Console.WriteLine("Alarm Ringing!");
+      } while (!buttonClick);
+
+      Console.WriteLine("Time for a five minute break.");
+
+      //here is an example of a for loop
+
+      for (int i = 1; i <= 16; i++){
+        Console.WriteLine($"Week {i}");
+        Console.WriteLine("Announcements: \n \n \n ");
+        Console.WriteLine("Report Backs: \n \n \n");
+        Console.WriteLine("Discussion Items: \n \n \n");
+      }
+
+      //here is an example of a foreach loop
+      string[] todo = {"respond to email", "make wireframe", "program feature", "fix bugs"};
+      
+      foreach( string note in todo) {
+          Console.WriteLine("[] " + note);
+      }
+
+      //now let's try breaking out of a loop
+      buttonClick = true;
+
+      int goneOff = 0;
+      
+      do
+      {
+        Console.WriteLine("BLARRRRR");
+        goneOff++;
+
+        if(goneOff == 3)
         {
-          case <= 3: 
-            Console.WriteLine("Very Acidic");
-            break;
-          case >= 11:
-            Console.WriteLine("Very Basic");
-            break;
-          case < 7:
-            Console.WriteLine("Acidic");
-            break;
-          case > 7:
-            Console.WriteLine("Basic");
-            break;
-          default: 
-            Console.WriteLine("Neutral");
-            break;
+          break;
         }
-
-        //let's practice with ternary statements
-        int pepperLength = 4;
-
-        string message = (pepperLength >= 3.5) ? "ready!" : "wait a little longer";
-
-        Console.WriteLine(message);
-
-
-        //Here is an example of an out paramter
-        string scoreAsString = "85.6";
-        string statement = "Hello World";
-        
-        double scoreAsDouble;
-        bool outcome = Double.TryParse(scoreAsString, out scoreAsDouble);
-
-        Console.WriteLine(outcome);
-        Console.WriteLine(scoreAsDouble);
-     }
+      } while(!buttonClick);
+    }
   }
 }
