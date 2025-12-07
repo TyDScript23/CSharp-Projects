@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using LearnInheritance;
 
 namespace HelloWorld
 {
@@ -374,6 +375,211 @@ namespace HelloWorld
           break;
         }
       } while(!buttonClick);
+
+      //####################################################################
+      //ARRAYS OF REFERENCES
+      //####################################################################
+      Sedan mySedan = new Sedan(55.0);
+      Vehicle myVehicle = new Vehicle(50.0);
+      Truck myTruck = new Truck(65.0, 35.0);
+
+      //now put them all into an array
+      Vehicle[] myVehicles = new Vehicle[] {mySedan, myVehicle, myTruck};
+
+      //and we can print out attributes from each object in the array
+      Console.WriteLine("Vehicle Speeds:");
+      foreach(Vehicle v in myVehicles)
+      {
+        Console.WriteLine(v.Speed);
+      }
+
+      //#############################################################################
+      //OBJECT TYPE
+      //############################################################################# 
+      Sedan sedanObj = new Sedan(60.0);
+      object obj1 = sedanObj; //upcasting
+
+      //also, where an array of objects is created, you can print the types to console
+      object[] objArray = new object[] {mySedan, myVehicle, myTruck, sedanObj, obj1};
+      Console.WriteLine("Object Types:");
+      foreach(object o in objArray)
+      {
+        Console.WriteLine(o.GetType());
+      }
+
+      //#############################################################################
+      //TOSTRING OVERRIDE
+      //#############################################################################
+
+      Console.WriteLine(mySedan.ToString());
+      Console.WriteLine(myTruck.ToString());
+
+      //#############################################################################
+      //REVIEW ON STRINGS
+      //#############################################################################
+
+      //checking to see if a string is null or empty from user input
+      Console.Write("Enter your name: ");
+      string userName = Console.ReadLine();
+      if (string.IsNullOrEmpty(userName))
+      {
+        Console.WriteLine("You did not enter a name.");
+      }
+      else
+      {
+        Console.WriteLine("Hello, " + userName + "!");
+      }
+
+      //now let's try getting rid of some characters in a string by replacing them with empty values
+      string dates = 
+        "January 4th, 2024\n" +
+        "March 25th, 2024\n" +
+        "July 8th, 2024\n" +
+        "December 11th, 2024";
+      
+      // Call `Replace()` here
+      
+      dates = dates.Replace("th", "");
+      Console.WriteLine(dates);
+
+      //#############################################################################
+      //LISTS
+      //#############################################################################
+      //let's try using a list to store some values
+      List<string> shoppingList = new List<string>();
+      shoppingList.Add("Milk");
+      shoppingList.Add("Eggs");
+      shoppingList.Add("Bread");
+      shoppingList.Add("Butter");
+      Console.WriteLine("Shopping List:");
+      foreach(string item in shoppingList)
+      {
+        Console.WriteLine(item);
+      }
+
+      //you can also just fill a list when you declare it
+      List<int> luckyNumbers = new List<int>() {3, 7, 9, 13, 21};
+
+      //let's print the number of items in the list
+      Console.WriteLine("Number of lucky numbers: " + luckyNumbers.Count);
+
+      //let's check if the list contains a certain item
+      int checkNumber = 7;
+      bool hasNumber = luckyNumbers.Contains(checkNumber);
+      Console.WriteLine("List contains " + checkNumber + ": " + hasNumber);
+
+      //we can also remove items from a list
+      luckyNumbers.Remove(9);
+      Console.WriteLine("Lucky Numbers after removal:");
+      foreach(int number in luckyNumbers)
+      {
+        Console.WriteLine(number);
+      }
+
+      //and you can just clear the whole list if you want
+      luckyNumbers.Clear();
+      Console.WriteLine("Lucky Numbers after clearing. Count: " + luckyNumbers.Count);
+
+      //and if you repopulate the list, you can use a foreach to print every item out
+      luckyNumbers.Add(2);
+      luckyNumbers.Add(4);
+      luckyNumbers.Add(6);
+      luckyNumbers.Add(8);
+      luckyNumbers.Add(10);
+
+      Console.WriteLine("Repopulated Lucky Numbers:");
+      foreach(int number in luckyNumbers)
+      {
+        Console.WriteLine(number);
+      }
+
+      //now let's get a specifric range from our list and print it
+      List<int> subList = luckyNumbers.GetRange(1, 3);
+      Console.WriteLine("Sublist of Lucky Numbers:"); 
+      foreach(int number in subList)
+      {
+        Console.WriteLine(number);
+      }
+
+      //#############################################################################
+      //LINQ
+      //#############################################################################
+
+      List<string> heroes = new List<string> { "Zoe", "Liam", "Taryn", "Dorian", "Everett", "Marlena" };
+      
+      var shortHeroes = from h in heroes
+                          where h.Length < 7
+                          select h;
+
+      foreach (string hero in shortHeroes) {
+        Console.WriteLine(hero);
+      }
+
+      var longHeroes = heroes.Where(n => n.Length >= 7);
+
+      Console.WriteLine(longHeroes.Count());
+
+      //we can also use other functions within our LINQ queries
+       var heroesWithI = from hero in heroes
+                        where hero.Contains("i")
+                        select hero;
+
+      Console.WriteLine("Heroes with 'i' in their names:");
+      foreach (string hero in heroesWithI) {
+        Console.WriteLine(hero);
+      }
+
+      //but we do not need to include a conditional statement in our LINQ query
+      var underscored = from hero in heroes
+                        select hero.Replace("a", "_");
+
+      Console.WriteLine("Heroes with 'a' replaced by '_':");
+      foreach (string hero in underscored) {
+        Console.WriteLine(hero);
+      }
+
+      //we can also compress our LINQ queries into single lines
+      var heroesWithE = heroes.Where(h => h.Contains("e"));
+      Console.WriteLine("Heroes with 'e' in their names:");
+      foreach (string hero in heroesWithE) {
+        Console.WriteLine(hero);
+      }
+
+      //you can use multiple separate statements or chain them into one line
+      var heroesWithR = heroes.Where(h => h.Contains("r"));
+      var lowerHeroesWithR = heroesWithR.Select(h => h.ToLower());
+
+      var sameResult = heroes.Where(h => h.Contains("r")).Select(h => h.ToLower());
+
+      Console.WriteLine("Heroes with 'r' in their names (Lowercase):");
+      foreach (string hero in lowerHeroesWithR) {
+        Console.WriteLine(hero);
+      } 
+      Console.WriteLine("Heroes with 'r' in their names (Lowercase):");
+      foreach (string hero in sameResult) {
+        Console.WriteLine(hero);
+      }
+
+      //using these queries we can apply a couple more functions
+      var heroIntroductions = heroes.Select(h => $"Introducing... {h}!");
+
+      var indexWithI = from hero in heroes
+                        where hero.Contains("i")
+                        select hero.IndexOf("i");
+      foreach (string h in heroIntroductions){
+        Console.WriteLine(h);
+      }
+
+      foreach (int i in indexWithI) {
+        Console.WriteLine(i);
+      }
+
+      //and we can include logical statements in our query
+      var heroesVOrY = heroes.Where(h => h.Contains("v") || h.Contains("y"));
+      Console.WriteLine("Heroes with 'v' or 'y' in their names:");
+      foreach (string hero in heroesVOrY) {
+        Console.WriteLine(hero);
+      }
     }
   }
 }

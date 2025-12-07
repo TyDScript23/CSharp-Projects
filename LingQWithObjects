@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LearnLinq
+{
+  class Hero
+  {
+    public string Name;
+    public string Class;
+    public string Race;
+    public int Strength;
+    public int Wisdom;
+    public int Dexterity;
+
+    public Hero (string n, string c, string r, int s, int w, int d)
+    {
+      this.Name = n;
+      this.Class = c;
+      this.Race = r;
+      this.Strength = s;
+      this.Wisdom = w;
+      this.Dexterity = d;
+    }
+  }
+
+  class Program
+  {
+    static void Main()
+    {
+      Hero[] heroes = { 
+        new Hero("Zoe","Fighter","Dwarf",18,8,11), 
+        new Hero("Liam","Wizard","Elf",8,18,11), 
+        new Hero("Taryn","Thief","Hafling",11,8,18), 
+        new Hero("Dorian","Cleric","Human",8,18,11)};
+
+    //here we use LINQ to select heroes with Strength greater than 10
+    //and create a new anonymous object with just their Name and Class
+    var strongHeroes = from h in heroes
+      where h.Strength > 10
+      select new { h.Name, h.Class };
+
+    foreach (var h in strongHeroes)
+    {
+      Console.WriteLine($"{h.Name} {h.Class}");
+    }
+    }
+  }
+}
